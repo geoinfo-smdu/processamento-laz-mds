@@ -20,6 +20,8 @@ Depois de instalado o miniconda basta instalar o PDAL e O EntiWine pelos seguint
 
 Agora tanto o comando `pdal` quanto o comando `entwine` vão funcionar na linha de comando
 
+Caso esteja usando um proxy é necessário configura-lo antes de executar essa instalação
+
 ## Gerando Entwine Point Tile (EPT)
 
 O Entwine Point Tile (EPT) é um padrão de disponibilização de nuvem de pontos em um formato octo-tree, ele acaba possibilitando a análise e visualização de grandes volumes de pontos em diversas escalas de forma eficaz, armazenando arquivos em subpastas e índices, conforme descrição no site (https://entwine.io/entwine-point-tile.html). Esse formato é um padrão relativamente consolidado e pode ser utilizado por projetos como o PDAL, PoTree e Plas.io
