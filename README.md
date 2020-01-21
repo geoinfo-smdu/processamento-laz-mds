@@ -1,6 +1,6 @@
 # Processamento de Arquivos LAZ para publicação do MDS do município de São Paulo
 
-Estamos processando uma quantidade massiva de arquivos LAZ para publicação no GeoSampa. São mais de 1,500 km2 de área com densidade de 12 ppm2. É uma quantidade massiva de dados e precisamos nos planejar para tornar essa tarefa eficiente do ponto de vista de processamento e trabalho.
+Estamos processando uma quantidade massiva de arquivos LAZ para publicação no GeoSampa. São mais de 1,500 km2 de área com densidade de 12 ppm2. Justamente por ser um volume grande de dados precisamos nos planejar para tornar essa tarefa eficiente do ponto de vista de processamento e trabalho.
 
 Esse repositório portanto, vai ser um guia com scripts e métodos para processar esses dados.
 
@@ -24,10 +24,13 @@ Caso esteja usando um proxy é necessário configura-lo antes de executar essa i
 
 ## Gerando Entwine Point Tile (EPT)
 
-O Entwine Point Tile (EPT) é um padrão de disponibilização de nuvem de pontos em um formato octo-tree, ele acaba possibilitando a análise e visualização de grandes volumes de pontos em diversas escalas de forma eficaz, armazenando arquivos em subpastas e índices, conforme descrição no site (https://entwine.io/entwine-point-tile.html). Esse formato é um padrão relativamente consolidado e pode ser utilizado por projetos como o PDAL, PoTree e Plas.io
+O Entwine Point Tile (EPT) é um padrão de serviço estático de publicação de nuvem de pontos em um formato octo-tree, ele acaba possibilitando a análise e visualização de grandes volumes de pontos em diversas escalas de forma eficaz, armazenando arquivos em subpastas e índices, conforme descrição no site (https://entwine.io/entwine-point-tile.html). Esse formato é um padrão relativamente consolidado e pode ser utilizado por projetos como o PDAL, PoTree e Plas.io
 
-Podemos por exemplo processar todos os arquivos LAZ da pasta `/laz/` criando uma estrutura EPT na pasta `/entwine/mdt` com o seguinte comando:
+Podemos por exemplo processar todos os arquivos LAZ da pasta `/laz/` criando uma estrutura EPT na pasta `/entwine/mds` com o seguinte comando:
 
-`entwine build -i ./laz/ -o /entwine/mdt`
+`entwine build -i ./laz/ -o ./entwine/mds`
 
+## Primeiros testes
 
+Como primeiro teste vamos utilizar todos os 96 SCMs do setor 3314 para processar o EPT.
+Vamos usar a pasta `teste-3314` com os scripts que vão gerar esse teste.
