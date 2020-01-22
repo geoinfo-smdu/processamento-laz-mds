@@ -2,8 +2,17 @@
 $env:GDAL_DATA = $($env:HOMEPATH + "\AppData\Local\Continuum\miniconda3\Library\share\gdal\")
 $env:PROJ_LIB = $($env:HOMEPATH + "\AppData\Local\Continuum\miniconda3\Library\share\proj\")
 $inicio = Get-Date
-entwine build -i $target -o $($source + '\entwine-3314') -t 3 -v --tmp $env:TMP
+foreach ($i in 1..5500) {
+    echo "************************************************************************************"
+    echo $("*************" + $i + " de 5500 **********************************************************")
+    echo "************************************************************************************"
+    entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 3 #--subset 4 4 
+}
+entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 3 #--subset 4 4 
 $termino = Get-Date
 echo $termino
 $duracao = $termino - $inicio
 echo $('Duracao ' + $duracao.Hours + ' horas e ' + $duracao.Minutes + ' minutos!')
+
+#entwine.exe merge --output $($source + '\entwine-3314') --threads 3
+# https://potree.entwine.io/data/view.html?r="http://localhost:8080"
