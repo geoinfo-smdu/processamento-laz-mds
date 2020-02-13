@@ -2,13 +2,13 @@
 $env:GDAL_DATA = $($env:HOMEPATH + "\AppData\Local\Continuum\miniconda3\Library\share\gdal\")
 $env:PROJ_LIB = $($env:HOMEPATH + "\AppData\Local\Continuum\miniconda3\Library\share\proj\")
 $inicio = Get-Date
-foreach ($i in 1..5500) {
+foreach ($i in 1..187) {
     echo "************************************************************************************"
-    echo $("*************" + $i + " de 5500 **********************************************************")
+    echo $("*************" + $i + " de 187 **********************************************************")
     echo "************************************************************************************"
-    entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 3 #--subset 4 4 
+    entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 30 #--force false #--subset 4 4 
 }
-entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 3 #--subset 4 4 
+#entwine build -i $target -o $($source + '\entwine') -t 3 -v --tmp $($source + '\tmp') --run 3 #--subset 4 4 
 $termino = Get-Date
 echo $termino
 $duracao = $termino - $inicio
